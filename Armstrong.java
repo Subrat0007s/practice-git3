@@ -1,12 +1,14 @@
+import java.util.Scanner;
+
 /**
  * Armstrong
  */
  interface Armstrong {
-    int isArmstrong(int n);
+    String isArmstrong(int n);
 }
 class ArmstrongImpln implements Armstrong{
-     public int isArmstrong(int a){
-	int t=a,len=0;
+    public String isArmstrong(int a){
+		int t=a,len=0;
 		while (t!=0){
 			t=t/10;
 			len++;
@@ -22,8 +24,18 @@ class ArmstrongImpln implements Armstrong{
 			t1=t1/10;
 		}
 		if(a==arm){
-		System.out.println("ArmStrong Number");
+			return "Armstrong number";
 		}
-     }
+		return "Not an Armstrong number";
+    }
 }
 
+class ArmstrongDriver{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		int n=sc.nextInt();
+		System.out.println(new ArmstrongImpln().isArmstrong(n));
+		sc.close();
+	}
+}
